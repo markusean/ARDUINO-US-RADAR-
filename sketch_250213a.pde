@@ -14,7 +14,7 @@ int index2=0;
 PFont orcFont;
 void setup() {
 
-  size (1200, 700); // ***CHANGE THIS TO YOUR SCREEN RESOLUTION***
+  size (1200, 700); 
   smooth();
   myPort = new Serial(this, "/dev/tty.usbserial-A5069RR4", 9600); // starts the serial communication
   myPort.bufferUntil('.'); // reads the data from the serial port up to the character '.'. So actually it reads this: angle,distance.
@@ -43,7 +43,6 @@ void serialEvent (Serial myPort) { // starts reading data from the Serial Port
   angle= data.substring(0, index1); // read the data from position "0" to position of the variable index1 or thats the value of the angle the Arduino Board sent into the Serial Port
   distance= data.substring(index1+1, data.length()); // read the data from position "index1" to the end of the data pr thats the value of the distance
 
-  // converts the String variables into Integer
   iAngle = int(angle);
   iDistance = int(distance);
 }
@@ -89,7 +88,7 @@ void drawLine() {
   line(0, 0, (height-height*0.12)*cos(radians(iAngle)), -(height-height*0.12)*sin(radians(iAngle))); // draws the line according to the angle
   popMatrix();
 }
-void drawText() { // draws the texts on the screen
+void drawText() { 
 
   pushMatrix();
   if (iDistance>40) {
